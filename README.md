@@ -1,2 +1,2 @@
-# blog-portfolio
-New website with a blog &amp; portfolio
+# Blog / Portfolio
+New website with a blog & portfolio
