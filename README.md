@@ -1,2 +1,2 @@
-# Blog / Portfolio
-New website with a blog & portfolio
+# Lina Brihoum website
+Using Hugo Air theme - https://github.com/syui/hugo-theme-air
