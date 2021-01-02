@@ -1,197 +1,90 @@
-# AIR theme for hugo
+  <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
+  <p align="center">
+    <a href="https://rg-portfolio.netlify.com/">
+      <img alt="rg-portfolio" src="https://github.com/rohitguptab/rg-portfolio/blob/master/src/images/fev_icon.png" width="50" />
+    </a>
+  </p>
+  <h1 align="center">
+    RG-Portfolio
+  </h1>
+  <img src="https://github.com/rohitguptab/rg-portfolio/blob/master/docs/screenshot.jpg" />
 
-Air is a single-column theme for [Hugo](http://gohugo.io/).
-Ported from [Casper theme for Ghost ](https://github.com/TryGhost/Casper), [vjeantet/hugo-theme-casper](https://github.com/vjeantet/hugo-theme-casper)
+Kick-off your Portfolio website with RG-Portfolio gatsby starter. We have used [Gatsby](https://www.gatsbyjs.org/) + [Contenful](https://www.gatsbyjs.org/packages/gatsby-source-contentful/?=Contenful).
 
-- github actions
+### Live Demo:
 
-- blog demo : http://syui.github.io/hugo-theme-air
+https://rg-portfolio.netlify.com/
 
-- blog source : https://github.com/syui/hugo-theme-air
+### Feature:
 
-![Hugo Air Theme screenshot](https://raw.githubusercontent.com/syui/hugo-theme-air/master/images/screen.gif)
+- Blogs listing with each blog post.
+- Contact form with Email notification using formspree.io.
+- Photos and Blogs page listing.
+- Different types of sections like About, Service, Blogs, Work, Testimonials, Photos, and contact.
+- All settings manage from contentful for example Header Menu, Homepage sections, blogs, and photos, etc.
+- Social share in blog details pages with comment ( Disqus ).
+- PWA
 
-```bash
-$ git clone https://github.com/syui/hugo-theme-air
+## 🚀 Quick start
 
-$ cd hugo-theme-air
+1.  **Setup this site.**
 
-$ hugo
+    Use the Gatsby CLI to Clone this site.
 
-$ hugo server
----------------------------------
-$ curl 127.0.0.1:1313/hugo-theme-air 
-```
-## Background Image
+    ```sh
+    # Clone this Repositories
+    gatsby new rg-portfolio https://github.com/Rohitguptab/rg-portfolio.git
+    ```
 
-[https://github.com/syui/hugo-theme-air/blob/master/static/css/screen.css#L1995](https://github.com/syui/hugo-theme-air/blob/master/static/css/screen.css#L1995)
+1.  **Setup Contentful Models**
 
-...`slow`
+    Use [contentful-cli](https://github.com/contentful/contentful-cli) to import the models from contentful-data.json
 
-## Features
+    ```
+    contentful space --space-id <CONTENTFUL_SPACE_ID> import --content-file contentful-data.json
+    ```
+    
+    Checkout my below blog how to Import and Export data from ContentFul
+    
+    [https://rohitgupta.netlify.app/import-and-export-data-with-contentful-cli](https://rohitgupta.netlify.app/import-and-export-data-with-contentful-cli)
 
-* [VincentGarreau/particles.js](https://github.com/VincentGarreau/particles.js/)
-* Google Analytics (optional)
-* Disqus ( can disable comments by content)
-* Share buttons on Facebook, Twitter, Google (can disable share by content)
-* Big cover image (optional)
-* Custom cover by content (optional)
-* Tagging
-* Pagination
-* Menu
+1.  **Start developing.**
 
-# Theme usage and asumptions
-* All blog posts are in the ```post``` folder (```content/post```)
-* The homepage displays a paginated list of contents from the post Section (other contents may be added to main menu, see bellow)
+    Navigate into your new site’s directory and start it up.
 
-# Installation
+    ```sh
+    cd rg-portfolio
+    npm install
+    gatsby develop
+    ```
 
-## Installing this theme
+1.  **Setup your Own Configure Projects.**
 
-    mkdir themes
-    cd themes
-    git clone https://github.com/syui/hugo-theme-air
+    Enter your own key
 
-## Build your website with this theme
+    [ContentFul](https://be.contentful.com/login):
 
-    hugo server -t hugo-theme-air
+    - spaceId = **Key**
+    - accessToken = **Key**
 
-# Configuration
+1.  **Open the source code and start editing!**
 
-**config.toml**
+    Your site is now running at `http://localhost:8000`!
 
-``` bash
-$ cat config.toml
-```
+    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
 
-Example : [config.toml](https://github.com/syui/hugo-theme-air/blob/master/config.toml)
+    Open the `rg-portfolio` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
 
-## Multiple authors configuration
+## 🎓 Learning Gatsby
 
-In addition to providing data for a single author as shown in the example above, multiple authors
-can be configured via data/authors/\*.(yml, toml, json) entries. If the key provided in
-.Site.Params.author matched a data/authors/\* entry, it will be used as the default. Overrides
-per page can be done by a simple author = other_author_key entry in the front matter. For those
-pages where you want to omit the author block completely, a .Params.noauthor entry is also
-available.
+Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.org/). Here are some places to start:
 
-``` bash
-$ hugo new post/foo.md
+- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.org/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
 
-$ cat content/post/foo.md
-```
+- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.org/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
 
-Example author definition file:
+## 💫 Deploy
 
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/Rohitguptab/rg-portfolio)
 
-``` yml
-name: John Doe
-bio: The most uninteresting man in the world.
-location: Normal, IL
-website: http://example.com
-
-```
-
-Example override author per page file:
-``` toml
-+++
-author = ""
-date = "2014-07-11T10:54:24+02:00"
-title = ""
-...
-+++
-
-Contents here
-
-```
-
-## Metadata on each content file, example
-
-``` toml
-+++
-author = ""
-date = "2014-07-11T10:54:24+02:00"
-draft = false
-title = "dotScale 2014 as a sketch"
-slug = "dotscale-2014-as-a-sketch"
-tags = ["event","dotScale","sketchnote"]
-image = "images/2014/Jul/titledotscale.png"
-comments = true     # set false to hide Disqus comments
-share = true        # set false to share buttons
-menu = ""           # set "main" to add this content to the main menu
-+++
-
-Contents here
-```
-
-## Create new content based with default metadata from this theme
-You can easyly create a new content with all metadatas used by this theme, using this command 
-```
-hugo new -t hugo-theme-air post/my-post.md
-```
-## Hosting for GitHub Pages
-
-```bash
-# build
-$ hugo 
-
-$ cd public
-
-# preview
-$ jekyll server
-$ rm -rf _site
-
-# make repository
-$ git init
-$ git remote add origin $url
-$ git add .
-$ git commit -m "first commit"
-$ git push -u origin master
-
-# push branch:gh-pages
-$ git checkout -b gh-pages
-$ git commit -m "open pages"
-$ git push -u origin gh-pages
-
-# open
-$ curl user.github.io/repository
-```
-
-## change logo
-
-Replace `static/images/user.png` with myfile.
-
-Please close the browser and rerun hugo server.
-
-point :`BaseUrl`, `authorwebsite` last slash `/`
-
-```toml
-BaseUrl= "https://localhost/"
-
-[params]
-  authorwebsite = "https://localhost"
-  logo = "images/user.png"
-```
-
-## content title sort
-
-rewrite `layout/index.html`
-
-```html
-{{ range $index, $page := $paginator.Pages }}
-  {{ .Render "li" }}
-{{ end }}
-```
-
-```html
-{{ range .Site.RegularPages.ByTitle }}
-  {{ .Render "li"}}
-{{ end }}
-```
-
-# Contact me
-
-:beetle: open an issue in github
-
-:bird: [https://twitter.com/syui__](https://twitter.com/syui__)
-
+  <!-- AUTO-GENERATED-CONTENT:END -->
