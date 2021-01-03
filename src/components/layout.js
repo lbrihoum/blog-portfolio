@@ -1,53 +1,67 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { StaticQuery, graphql } from "gatsby";
-import "bootstrap/dist/css/bootstrap.css";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
+import { StaticQuery, graphql } from 'gatsby';
 
-import Header from "./header";
-import Footer from "./footer";
+import '../assets/sass/main.scss';
 
-import "../css/style.css";
-import "../css/font-awesome.css";
+class Layout extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isPreloaded: true,
+    };
+  }
 
-if (typeof window !== "undefined") {
-  require("smooth-scroll")('a[href*="#"]');
-}
+  componentDidMount() {
+    this.timeoutId = setTimeout(() => {
+      this.setState({ isPreloaded: false });
+    }, 100);
+  }
 
-const Layout = ({ children, header }) => (
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        contentfulSiteInformation {
-          siteName
-          siteDescription
-          logo {
-            file {
-              url
+  componentWillUnmount() {
+    if (this.timeoutId) {
+      clearTimeout(this.timeoutId);
+    }
+  }
+
+  render() {
+    const { children } = this.props;
+    const { isPreloaded } = this.state;
+    return (
+      <StaticQuery
+        query={graphql`
+          query SiteTitleQuery {
+            site {
+              siteMetadata {
+                title
+              }
             }
           }
-          menus
-        }
-      }
-    `}
-    
-    render={data => (
-      <>
-        <Header
-          data={data.contentfulSiteInformation}
-          siteTitle={data.contentfulSiteInformation.siteName}
-          header={header}
-        />
-        <div>
-          <main id="home">{children}</main>
-        </div>
-        <Footer siteName={data.contentfulSiteInformation.siteName} />
-      </>
-    )}
-  />
-);
+        `}
+        render={data => (
+          <>
+            <Helmet
+              title={data.site.siteMetadata.title}
+              meta={[
+                { name: 'description', content: 'Highlights' },
+                { name: 'keywords', content: 'site, web' },
+              ]}
+            >
+              <html lang="en" />
+            </Helmet>
+            <div className={isPreloaded ? 'main-body is-preload' : 'main-body'}>
+              {children}
+            </div>
+          </>
+        )}
+      />
+    );
+  }
+}
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };
 
 export default Layout;

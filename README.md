@@ -1,90 +1,98 @@
-  <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-  <p align="center">
-    <a href="https://rg-portfolio.netlify.com/">
-      <img alt="rg-portfolio" src="https://github.com/rohitguptab/rg-portfolio/blob/master/src/images/fev_icon.png" width="50" />
-    </a>
-  </p>
-  <h1 align="center">
-    RG-Portfolio
-  </h1>
-  <img src="https://github.com/rohitguptab/rg-portfolio/blob/master/docs/screenshot.jpg" />
+# gatsby-starter-highlights
 
-Kick-off your Portfolio website with RG-Portfolio gatsby starter. We have used [Gatsby](https://www.gatsbyjs.org/) + [Contenful](https://www.gatsbyjs.org/packages/gatsby-source-contentful/?=Contenful).
+Gatsby.js V2 starter template based on Highlights by HTML5 UP
 
-### Live Demo:
+For an overview of the project structure please refer to the [Gatsby documentation - Building with Components](https://www.gatsbyjs.org/docs/building-with-components/).
 
-https://rg-portfolio.netlify.com/
+![Screenshot](./src/assets/img/highlights.jpg)
 
-### Feature:
+Check online preview [here](https://anubhavsrivastava.github.io/gatsby-starter-highlights/)
 
-- Blogs listing with each blog post.
-- Contact form with Email notification using formspree.io.
-- Photos and Blogs page listing.
-- Different types of sections like About, Service, Blogs, Work, Testimonials, Photos, and contact.
-- All settings manage from contentful for example Header Menu, Homepage sections, blogs, and photos, etc.
-- Social share in blog details pages with comment ( Disqus ).
-- PWA
+## Screenshot
 
-## 🚀 Quick start
+![Screenshot](./src/assets/img/demo.png)
 
-1.  **Setup this site.**
+## Install
 
-    Use the Gatsby CLI to Clone this site.
+Make sure that you have the Gatsby CLI program installed:
 
-    ```sh
-    # Clone this Repositories
-    gatsby new rg-portfolio https://github.com/Rohitguptab/rg-portfolio.git
-    ```
+```sh
+npm install --global gatsby-cli
+```
 
-1.  **Setup Contentful Models**
+And run from your CLI:
 
-    Use [contentful-cli](https://github.com/contentful/contentful-cli) to import the models from contentful-data.json
+```sh
+gatsby new <site-name> https://github.com/anubhavsrivastava/gatsby-starter-highlights
+```
 
-    ```
-    contentful space --space-id <CONTENTFUL_SPACE_ID> import --content-file contentful-data.json
-    ```
-    
-    Checkout my below blog how to Import and Export data from ContentFul
-    
-    [https://rohitgupta.netlify.app/import-and-export-data-with-contentful-cli](https://rohitgupta.netlify.app/import-and-export-data-with-contentful-cli)
+Then you can run it by:
 
-1.  **Start developing.**
+```sh
+cd gatsby-example-site
+npm install
+gatsby develop
+```
 
-    Navigate into your new site’s directory and start it up.
+### Personalization
 
-    ```sh
-    cd rg-portfolio
-    npm install
-    gatsby develop
-    ```
+Edit `config.js` to put up your details
 
-1.  **Setup your Own Configure Projects.**
+```javascript
+module.exports = {
+  siteTitle: 'Gatsby Starter highlights', // <title>
+  ...
+  heading: 'Anubhav',
+  subHeading: 'Web Developer',
+  // social
+  socialLinks: [
+    {
+      icon: 'fa-github',
+      name: 'Github',
+      url: 'https://github.com/anubhavsrivastava',
+    }
+    ...
+  ],
+};
 
-    Enter your own key
+```
 
-    [ContentFul](https://be.contentful.com/login):
+### Deploying using Github page
 
-    - spaceId = **Key**
-    - accessToken = **Key**
+`package.json` has a default script that uses `gh-pages` module to publish on Github pages. Simply running `npm run deploy` would publish the site on github pages.
 
-1.  **Open the source code and start editing!**
+Additionally, it also has [path-prefix](https://www.gatsbyjs.org/docs/path-prefix/) value set for gatsby config in `config.js`. Change `pathPrefix` to relevant path if your gatsby site is hosted on subpath of a domain, `https://theanubhav.com/somePath/`. If you are hosting it as root site, i.e, `https://theanubhav.com/` , remove the pathPrefix configuration.
 
-    Your site is now running at `http://localhost:8000`!
+### Checkout other similar starters
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
+- [gatsby-starter-casual](https://github.com/anubhavsrivastava/gatsby-starter-casual)
+- [gatsby-starter-grayscale](https://github.com/anubhavsrivastava/gatsby-starter-grayscale)
+- [gatsby-starter-resume](https://github.com/anubhavsrivastava/gatsby-starter-resume)
+- [gatsby-starter-spectral](https://github.com/anubhavsrivastava/gatsby-starter-spectral)
+- [gatsby-starter-newage](https://github.com/anubhavsrivastava/gatsby-starter-newage)
+- [gatsby-starter-stylish](https://github.com/anubhavsrivastava/gatsby-starter-stylish)
+- [gatsby-starter-solidstate](https://github.com/anubhavsrivastava/gatsby-starter-solidstate)
+- [gatsby-starter-readonly](https://github.com/anubhavsrivastava/gatsby-starter-readonly)
+- [gatsby-starter-prologue](https://github.com/anubhavsrivastava/gatsby-starter-prologue)
+- [gatsby-starter-phantom](https://github.com/anubhavsrivastava/gatsby-starter-phantom)
+- [gatsby-starter-paradigmshift](https://github.com/anubhavsrivastava/gatsby-starter-paradigmshift)
+- [gatsby-starter-overflow](https://github.com/anubhavsrivastava/gatsby-starter-overflow)
+- [gatsby-starter-multiverse](https://github.com/anubhavsrivastava/gatsby-starter-multiverse)
+- [gatsby-starter-identity](https://github.com/anubhavsrivastava/gatsby-starter-identity) 
+- [gatsby-starter-fractal](https://github.com/anubhavsrivastava/gatsby-starter-fractal)
+- [gatsby-starter-eventually](https://github.com/anubhavsrivastava/gatsby-starter-eventually)
+- [gatsby-starter-directive](https://github.com/anubhavsrivastava/gatsby-starter-directive)
+- [gatsby-starter-creative](https://github.com/anubhavsrivastava/gatsby-starter-creative)
+- [gatsby-starter-aerial](https://github.com/anubhavsrivastava/gatsby-starter-aerial)
 
-    Open the `rg-portfolio` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+### Contribution
 
-## 🎓 Learning Gatsby
+Suggestions and PRs are welcome!
 
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.org/). Here are some places to start:
+Please create issue or open PR request for contribution.
 
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.org/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
+### License
 
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.org/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
+[![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](LICENSE)
 
-## 💫 Deploy
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/Rohitguptab/rg-portfolio)
-
-  <!-- AUTO-GENERATED-CONTENT:END -->
+refer `LICENSE` file in this repository.

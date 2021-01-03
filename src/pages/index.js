@@ -1,210 +1,169 @@
-import React from "react";
-import { graphql } from "gatsby";
+import React from 'react';
+import Scrollspy from 'react-scrollspy';
 
-import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Layout from '../components/Layout';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import Scroll from '../components/Scroll';
+import overLayPic from '../assets/images/overlay.png';
+import { Link } from 'gatsby';
 
-import Banner from "../components/banner";
-import About from "../components/about";
-import Service from "../components/service";
-import Work from "../components/work";
-import Blogs from "../components/blogs";
-import Testimonial from "../components/testimonial";
-import Contact from "../components/contact";
-import Photos from "../components/photos";
+const sections = [
+  { id: 'one', bg: require('../assets/images/pic01.jpg') },
+  { id: 'two', bg: require('../assets/images/pic02.jpg') },
+  { id: 'three', bg: require('../assets/images/pic03.jpg') },
+];
+const IndexPage = () => (
+  <Layout>
+    <Header />
 
-const IndexPage = ({ data }) => (
-  <Layout header="home">
-    <SEO
-      title={data.contentfulAboutMe.designation}
-      keywords={[`Rohit Gupta`, `Frontend Developer`, `Developer`]}
-    />
-    <Banner data={data.contentfulAboutMe}></Banner>
+    <section id="one" className="main special">
+      <div className="container">
+        <span className="image fit primary">
+          <img src={sections[0].bg} alt="" />
+        </span>
+        <div className="content">
+          <header className="major">
+            <h2>Who I am</h2>
+          </header>
+          <p>
+            Aliquam ante ac id. Adipiscing interdum lorem praesent fusce
+            pellentesque arcu feugiat. Consequat sed ultricies rutrum. Sed
+            adipiscing eu amet interdum lorem blandit vis ac commodo aliquet
+            integer vulputate phasellus lorem ipsum dolor lorem magna consequat
+            sed etiam adipiscing interdum.
+          </p>
+        </div>
+        <Scroll type="id" element="two">
+          <a href="#two" className="goto-next ">
+            Next
+          </a>
+        </Scroll>
+      </div>
+    </section>
 
-    {data.contentfulSiteInformation.menus
-      .filter(item => item === "About")
-      .map(t => {
-        return <About key="About" data={data.contentfulAboutMe}></About>;
-      })}
+    <section id="two" className="main special">
+      <div className="container">
+        <span className="image fit primary">
+          <img src={sections[1].bg} alt="" />
+        </span>
+        <div className="content">
+          <header className="major">
+            <h2>Stuff I do</h2>
+          </header>
+          <p>
+            Consequat sed ultricies rutrum. Sed adipiscing eu amet interdum
+            lorem blandit vis ac commodo aliquet vulputate.
+          </p>
+          <ul className="icons-grid">
+            <li>
+              <span className="icon major fa-camera-retro" />
+              <h3>Photography</h3>
+            </li>
+            <li>
+              <span className="icon major fa-pencil" />
+              <h3>Blogging</h3>
+            </li>
+            <li>
+              <span className="icon major fa-code" />
+              <h3>Web Development</h3>
+            </li>
+            <li>
+              <span className="icon major fa-coffee" />
+              <h3>Sipping Coffee</h3>
+            </li>
+          </ul>
+        </div>
+        <Scroll type="id" element="three">
+          <a href="#three" className="goto-next ">
+            Next
+          </a>
+        </Scroll>
+      </div>
+    </section>
 
-    {data.contentfulSiteInformation.menus
-      .filter(item => item === "Service")
-      .map(t => {
-        return <Service key="Service" data={data.allContentfulService}></Service>;
-      })}
+    <section id="three" className="main special">
+      <div className="container">
+        <span className="image fit primary">
+          <img src={sections[2].bg} alt="" />
+        </span>
+        <div className="content">
+          <header className="major">
+            <h2>One more thing</h2>
+          </header>
+          <p>
+            Aliquam ante ac id. Adipiscing interdum lorem praesent fusce
+            pellentesque arcu feugiat. Consequat sed ultricies rutrum. Sed
+            adipiscing eu amet interdum lorem blandit vis ac commodo aliquet
+            integer vulputate phasellus lorem ipsum dolor lorem magna consequat
+            sed etiam adipiscing interdum.
+          </p>
+        </div>
+        <Scroll type="id" element="footer">
+          <a href="#footer" className="goto-next ">
+            Next
+          </a>
+        </Scroll>
+      </div>
+    </section>
 
-    {data.contentfulSiteInformation.menus
-      .filter(item => item === "Blogs")
-      .map(t => {
-        return <Blogs key="Blogs" data={data.allContentfulBlogs}></Blogs>;
-      })}
+    <section id="footer">
+      <div className="container">
+        <header className="major">
+          <h2>Get in touch</h2>
+        </header>
+        <form method="post" action="#">
+          <div className="row gtr-uniform">
+            <div className="col-6 col-12-xsmall">
+              <input type="text" name="name" id="name" placeholder="Name" />
+            </div>
+            <div className="col-6 col-12-xsmall">
+              <input type="email" name="email" id="email" placeholder="Email" />
+            </div>
+            <div className="col-12">
+              <textarea
+                name="message"
+                id="message"
+                placeholder="Message"
+                rows="4"
+              />
+            </div>
+            <div className="col-12">
+              <ul className="actions special">
+                <li>
+                  <input
+                    type="submit"
+                    value="Send Message"
+                    className="primary"
+                  />
+                </li>
+              </ul>
+            </div>
+          </div>
+        </form>
+        <Link to="/Elements"> Check out Elements page</Link>
+      </div>
+      <Footer />
+    </section>
 
-    {data.contentfulSiteInformation.menus
-      .filter(item => item === "Work")
-      .map(t => {
-        return <Work key="Work" data={data.allContentfulWorks}></Work>;
-      })}
-
-    {data.contentfulSiteInformation.menus
-      .filter(item => item === "Testimonials")
-      .map(t => {
+    <Scrollspy
+      items={sections.map(s => s.id)}
+      currentClassName="active"
+      offset={50}
+      componentTag={'div'}
+    >
+      {sections.map(s => {
         return (
-          <Testimonial key="Testimonial" data={data.allContentfulTestimonials}></Testimonial>
+          <div
+            key={s.id}
+            className="main-bg"
+            id={`${s.id}-bg`}
+            style={{ backgroundImage: `url(${overLayPic}), url(${s.bg})` }}
+          />
         );
       })}
-
-    {data.contentfulSiteInformation.menus
-      .filter(item => item === "Photos")
-      .map(t => {
-        return <Photos key="Photos" data={data.contentfulPhotos}></Photos>;
-      })}
-
-    {data.contentfulSiteInformation.menus
-      .filter(item => item === "Contact")
-      .map(t => {
-        return <Contact key="Contact" data={data.contentfulAboutMe.gmail}></Contact>;
-      })}
+    </Scrollspy>
   </Layout>
 );
 
 export default IndexPage;
-
-export const pageQuery = graphql`
-  query AboutQuery {
-    contentfulAboutMe {
-      name
-      photo {
-        file {
-          url
-        }
-        fluid {
-          base64
-          aspectRatio
-          src
-          srcSet
-          srcWebp
-          srcSetWebp
-          sizes
-        }
-      }
-      designation
-      age
-      facebook
-      github
-      gmail
-      id
-      instagram
-      linkdin
-      twitter
-      location
-      description {
-        childMarkdownRemark {
-          html
-        }
-      }
-      bannerImage {
-        fluid(maxWidth: 1500) {
-          base64
-          aspectRatio
-          src
-          srcSet
-          srcWebp
-          srcSetWebp
-          sizes
-        }
-      }
-      bannerList
-    }
-    allContentfulService {
-      edges {
-        node {
-          title
-          description {
-            childMarkdownRemark {
-              html
-            }
-          }
-        }
-      }
-    }
-    allContentfulBlogs(limit: 5, sort: {fields: createdAt, order: DESC}) {
-      edges {
-        node {
-          title
-          slug
-          featureImage {
-            fluid(maxWidth: 600) {
-              base64
-              aspectRatio
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
-              sizes
-            }
-          }
-          createdAt
-        }
-      }
-    }
-    allContentfulTestimonials {
-      edges {
-        node {
-          name
-          subTitle
-          description {
-            childMarkdownRemark {
-              html
-            }
-          }
-          avatarImage {
-            fluid(maxWidth: 200) {
-              base64
-              aspectRatio
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
-              sizes
-            }
-          }
-        }
-      }
-    }
-    allContentfulWorks {
-      edges {
-        node {
-          siteName
-          url
-          image {
-            fluid(maxWidth: 600) {
-              base64
-              aspectRatio
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
-              sizes
-            }
-          }
-        }
-      }
-    }
-    contentfulPhotos {
-      photos {
-        fluid(maxWidth: 600) {
-          base64
-          aspectRatio
-          src
-          srcSet
-          srcWebp
-          srcSetWebp
-          sizes
-        }
-      }
-    }
-    contentfulSiteInformation {
-      menus
-    }
-  }
-`;
